@@ -1,0 +1,32 @@
+{% extends 'csvapp/base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="text-center logo my-4">
+      <a href="#">Upload</a>
+    </h1>
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6 col-sm-8">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Upload</h3>
+            <form method="post" enctype="multipart/form-data">
+              {{ form.as_p }}
+              {% csrf_token %}
+              <button type="submit" class="btn btn-primary btn-block">Upload</button>
+            </form>
+          </div>
+          <div class="card-footer text-muted text-center">
+            <a href="plot">show graph</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
